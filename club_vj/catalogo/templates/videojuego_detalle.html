@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="container">
+    <h1 class="text-center my-3">Bienvenid@s al Club V.J. 🎮</h1>
+    <h2 class="text-center my-3">{{ detalle_vj.titulo }}</h2>
+
+    <div class="card mb-3 mt-5 mx-auto" style="max-width:80%">
+        <div class="row g-0">
+            <div class="col-md-3">
+            <img src="{% static 'img/'|add:detalle_vj.imagen %}" class="img-fluid rounded-start" alt="...">
+            </div>
+            <div class="col-md-6">
+            <div class="card-body">
+                <h5 class="card-title">{{ detalle_vj.titulo }}</h5>
+                <p class="card-text">{{ detalle_vj.descripcion }}</p>
+                <p class="card-text"><small class="text-body-secondary">Género: {{ detalle_vj.genero.nombre }}</small></p>
+            </div>
+            </div>
+            <div class="col-md-3">
+            <img src="{% static 'img/'|add:detalle_vj.plataforma.imagen %}" class="img-fluid rounded-start" alt="...">
+            </div>
+        </div>
+        
+    </div>
+    <div class="text-center">
+        <a href="{% url 'videojuegos' %}" class="card-link">Regresar</a>
+    </div>
+    
+</div>
+
+{% endblock %}
+
+

@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<div>
+    <h1 class="text-center my-3">Listado de Video juegos</h1>
+</div>
+
+<div class="container">
+    <div class="row"> 
+        
+            {% for item in videojuegos %}
+            <div class="col-12 col-md-6 col-lg-4 my-5 px-2 text-center">
+                <div class="card py-2" style="width: 21rem;">
+                    <img src="{% static 'img/'|add:item.imagen %}" class="card-img-top product-img" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ item.titulo }}</h5>
+                        <p class="card-text">{{ item.annio }}</p>
+                        <p class="card-text">{{ item.plataforma.nombre }}</p>
+                        <p class="card-text">{{ item.genero.nombre }}</p>
+                    </div>
+                    
+                    <div class="card-body">
+                        <a href="{% url 'videojuego' item.id %}" class="btn btn-primary">Detalles</a>
+                        
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        
+    </div>  
+</div>
+
+
+
+
+{% endblock %}
+
